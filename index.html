@@ -4,7 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>eWISE</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
     <style>
+        /* Reset and Basic Styles */
         * {
             margin: 0;
             padding: 0;
@@ -12,16 +16,29 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            line-height: 1.6;
-            color: #333;
+            font-family: 'Open Sans', sans-serif; /* More readable body font */
+            line-height: 1.7;
+            color: #444; /* Slightly softer text color */
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 20px;
+            background-color: #f9f9f9; /* Light background */
         }
 
+        a {
+            color: #007bff; /* A standard link color */
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: #0056b3;
+        }
+
+        /* Header and Navigation */
         header {
             padding: 2rem 0;
+            margin-bottom: 2rem;
             border-bottom: 1px solid #eee;
         }
 
@@ -32,72 +49,126 @@
         }
 
         .logo {
-            font-size: 1.5rem;
+            font-family: 'Roboto Slab', serif; /* More distinctive logo font */
+            font-size: 1.8rem;
             font-weight: 700;
-            text-decoration: none;
             color: #333;
         }
 
         .nav-links {
             display: flex;
-            gap: 2rem;
+            gap: 2.5rem;
         }
 
         .nav-links a {
-            text-decoration: none;
-            color: #333;
-            font-size: 0.9rem;
+            font-size: 1rem;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 0.5px;
+            font-weight: 600;
         }
 
+        /* Main Content */
         main {
-            padding: 4rem 0;
+            padding: 2rem 0;
         }
 
         .hero {
             text-align: center;
-            margin-bottom: 4rem;
+            margin-bottom: 3rem;
+            padding: 2rem;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
         }
 
         h1 {
-            font-size: 2.5rem;
+            font-family: 'Roboto Slab', serif;
+            font-size: 3rem;
             margin-bottom: 1rem;
             font-weight: 700;
+            color: #222;
         }
 
         .subtitle {
-            font-size: 1.2rem;
-            color: #666;
-            max-width: 600px;
-            margin: 0 auto;
+            font-size: 1.3rem;
+            color: #777;
+            max-width: 700px;
+            margin: 0.5rem auto 1.5rem;
         }
 
         .content-section {
-            margin-bottom: 4rem;
+            margin-bottom: 3rem;
+            padding: 2rem;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
         }
 
         h2 {
-            font-size: 1.8rem;
-            margin-bottom: 1.5rem;
+            font-family: 'Roboto Slab', serif;
+            font-size: 2.2rem;
+            margin-bottom: 1.2rem;
+            color: #333;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 0.5rem;
         }
 
         p {
-            margin-bottom: 1rem;
+            margin-bottom: 1.2rem;
+            color: #555;
+        }
+
+        /* Work Section - Card Layout */
+        #work .content-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .work-item {
+            padding: 1.5rem;
+            background-color: #f0f8ff; /* Light blue background for cards */
+            border-radius: 8px;
+            border: 1px solid #e0e0e0;
+        }
+
+        .work-item h3 {
+            font-family: 'Roboto Slab', serif;
+            font-size: 1.5rem;
+            margin-bottom: 0.8rem;
+            color: #333;
+        }
+
+        .work-item p {
             color: #666;
         }
 
+        /* Footer */
         footer {
             padding: 2rem 0;
+            margin-top: 4rem;
             border-top: 1px solid #eee;
             text-align: center;
-            color: #666;
+            color: #777;
             font-size: 0.9rem;
         }
 
+        /* Media Query for smaller screens (like Colossal) */
         @media (max-width: 768px) {
             .nav-links {
-                display: none;
+                display: none; /* Hide navigation on smaller screens (you might want a hamburger menu later) */
+            }
+
+            .hero {
+                padding: 1.5rem;
+            }
+
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            .content-section {
+                padding: 1.5rem;
             }
         }
     </style>
@@ -105,10 +176,10 @@
 <body>
     <header>
         <nav>
-            <a href="#" class="logo">YOUR NAME</a>
+            <a href="#" class="logo">eWISE</a>
             <div class="nav-links">
                 <a href="#about">About</a>
-                <a href="#work">Work</a>
+                <a href="#work">Services</a> <!-- Changed "Work" to "Services" for clarity -->
                 <a href="#contact">Contact</a>
             </div>
         </nav>
@@ -116,45 +187,52 @@
 
     <main>
         <section class="hero">
-            <h1>Welcome to eWISE</h1>
-            <p class="subtitle">Empowering Seniors Through Technology, Stories, and Virtual Experiences</p>
-            <p>At EWise, we believe in bridging the gap between generations by helping seniors embrace the possibilities of modern technology. From personalized tech lessons to preserving cherished memories and exploring the world through immersive virtual experiences, we make the impossible possible. Empower yourself, share your legacy, and explore a world of new opportunities with EWise.</p>
+            <h1>Empowering Seniors in the Digital Age</h1>
+            <p class="subtitle">Bridging the generational gap through technology education, storytelling, and immersive virtual experiences.</p>
+            <p>At eWISE, we're dedicated to making technology accessible and enriching for seniors. Discover how we help you connect with loved ones, preserve your legacy, and explore new worlds from the comfort of your home.</p>
         </section>
 
         <section id="about" class="content-section">
-            <h2>About</h2>
-            <p>Our Mission: Empowering and Enriching Senior Lives
-EWise was founded with a passion for creating meaningful connections and experiences for seniors. We are dedicated to helping individuals embrace technology, preserve their unique stories, and explore the wonders of the world—all from the comfort of their homes.
-Our Values: Empathy, Innovation, and Inclusivity
-We pride ourselves on offering services tailored to your pace and preferences, ensuring accessibility, and fostering a supportive community. Whether it's learning to video call your grandchildren, documenting your life story, or virtually walking the streets of Paris, our mission is to enrich lives with every interaction.          </p>
+            <h2>Our Mission</h2>
+            <p>EWise was founded with a clear passion: to empower and enrich the lives of seniors by fostering meaningful connections and experiences. We are committed to helping individuals embrace technology, preserve their unique stories, and explore the world, all within a supportive and accessible environment.</p>
+            <p><strong>Our Core Values:</strong></p>
+            <ul>
+                <li><strong>Empathy:</strong> Understanding and prioritizing the needs and comfort of our users.</li>
+                <li><strong>Innovation:</strong> Continuously seeking new and engaging ways to connect seniors with technology and experiences.</li>
+                <li><strong>Inclusivity:</strong> Ensuring our services are accessible and welcoming to everyone, regardless of their technical background.</li>
+            </ul>
+            <p>Whether it's learning to video call your grandchildren, crafting your life story, or virtually exploring ancient ruins, our mission is to enrich lives with every interaction.</p>
         </section>
 
         <section id="work" class="content-section">
-            <h2>Work</h2>
-            <p>Discover How EWise Can Enhance Your Life
-
-1. Tech Bridge Courses:
-Learn to master modern tools like apps, AI assistants, and smart devices, or step into the future with VR/AR. We make the digital world approachable and exciting.
-
-2. Story Documentation Services:
-Preserve your legacy with personalized autobiographies, family cookbooks, or genealogical archives. Share your wisdom and connect generations with beautifully crafted memories.
-
-3. Immersive Virtual Experiences:
-Travel the world from your living room! Our guided virtual tours bring you closer to places you’ve always dreamed of visiting, from iconic landmarks to serene natural wonders.</p>
+            <h2>Our Services</h2>
+            <div class="content-grid">
+                <div class="work-item">
+                    <h3>Tech Bridge Courses</h3>
+                    <p>Master essential digital skills, from using smartphones and tablets to navigating social media and staying safe online. We offer personalized, patient-focused instruction on apps, AI assistants, and more.</p>
+                </div>
+                <div class="work-item">
+                    <h3>Story Documentation Services</h3>
+                    <p>Preserve your cherished memories and legacy with our personalized documentation services. Create autobiographies, family cookbooks, genealogical records, and more to share your unique story with future generations.</p>
+                </div>
+                <div class="work-item">
+                    <h3>Immersive Virtual Experiences</h3>
+                    <p>Embark on breathtaking adventures from the comfort of your home with our curated virtual reality and augmented reality experiences. Explore world landmarks, natural wonders, and historical sites without leaving your living room.</p>
+                </div>
+            </div>
         </section>
 
         <section id="contact" class="content-section">
-            <h2>Contact</h2>
-            <p>Reach out and connect with us directly</p>
-            <p>Your Journey Begins Here</p>
-            <p>Contact us to learn more about our services and discover how EWise can make a difference in your life.</p>
-            <p>Email: info@ewiseconnect.com</p>
-            <p>Phone: (702) 604-2519</p>
+            <h2>Connect With Us</h2>
+            <p>Ready to begin your journey with eWISE? We're here to answer your questions and help you discover the possibilities.</p>
+            <p><strong>Get in Touch:</strong></p>
+            <p>Email: <a href="mailto:info@ewiseconnect.com">info@ewiseconnect.com</a></p>
+            <p>Phone: <a href="tel:7026042519">(702) 604-2519</a></p>
         </section>
     </main>
 
     <footer>
-        <p>&copy; 2024 eWISE LLC. All rights reserved.</p>
+        <p>© 2024 eWISE LLC. All rights reserved.</p>
     </footer>
 </body>
 </html>
